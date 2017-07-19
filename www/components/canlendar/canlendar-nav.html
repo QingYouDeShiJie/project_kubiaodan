@@ -1,0 +1,11 @@
+<div class="canlendar-nav">
+	<button ng-click="goPrev()">&lt;</button>
+	
+	<div class="info" ng-click="changetype()">
+		<span ng-show="type=='m'">{{y}}年{{m}}月</span>
+		<span ng-show="type=='y'">{{y}}年</span>
+		<span ng-show="type=='ys'">{{ystart}}年~{{ystart+29}}年</span>
+	</div>
+
+	<button ng-click="goNext()">&gt;</button>
+</div>

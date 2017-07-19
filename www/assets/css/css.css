@@ -1,0 +1,148 @@
+.question{
+	margin-bottom: 20px;
+	position: relative;
+	padding: 10px;
+	border-radius: 6px;
+}
+.question.onedit{
+	box-shadow: 0px 0px 1px red;
+	animation:bling 0.5s ease 0s infinite alternate;
+	position: relative;
+	z-index: 999;
+	background: white;
+}
+.mask----zhudiaole{
+	width: 100%;
+	height: 100%;
+	z-index: 998;
+	background: rgba(0,0,0,.2);
+	position: fixed;
+	top: 0;
+	left:0;
+}
+@-webkit-keyframes bling{
+	from{
+		box-shadow:   0px 0px 1px red;
+	}
+	to{
+		box-shadow:   0px 0px 13px orange;
+	}
+}
+.options-box{
+	font-size: 16px;
+}
+ 
+.options-box span{
+
+	padding: 0 20px;
+}
+.options-box p{
+	padding: 0 20px;
+}
+.options-box span input{
+	margin-right: 4px;
+}
+label{
+	cursor: pointer;
+}
+label:hover{
+	color:orange;
+}
+html{
+	height: 100%;
+}
+body{
+ 
+	padding-bottom: 200px;
+}
+.editbtn{
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	border:1px solid #bdbdbd;
+	padding: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 999;
+	background-color: white;
+}
+.justifybtn{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	border:1px solid #bdbdbd;
+	padding: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 999;
+	background-color: white;
+}
+.removebtn{
+	position: absolute;
+	right: 70px;
+	top: 10px;
+	border:1px solid #bdbdbd;
+	padding: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 999;
+	background-color: white;
+}
+.editbtn:hover{
+	background-color: yellow;
+}
+.attrbox{
+	position: fixed;
+	width: 25%;
+	height: 100%;
+	right: 0;
+	top: 100px;
+	border-left: 1px solid #bdbdbd;
+	padding-left:10px;
+	z-index: 999;
+	background-color: white;
+	padding-right: 10px;
+}
+.label_l{
+	display: block;
+	float: left;
+	width: 25%;
+	font-size: 15px;
+}
+.cl{
+	clear: both;
+}
+.btns{
+	line-height: 40px;
+	color:darkred;
+}
+
+.btns span{
+	cursor: pointer;
+}
+
+
+ /***********************************/
+ .toolbox{
+ 	position: fixed;
+ 	top: 100px;
+ 	left:0;
+ 	width:280px;
+ }
+ .toolbox ul{
+ 	list-style: none;
+ 	padding: 0;
+ }
+ .toolbox ul li{
+ 	float: left;
+ 	width:50%;
+ 	line-height: 60px;
+ 	margin-bottom: 10px;
+ 	text-align: center;
+ 	padding: 10px;
+ }
+  .toolbox ul li div{
+	width:100%;
+	height:100%;
+	border: 1px solid orange;
+  }

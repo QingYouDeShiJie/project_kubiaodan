@@ -1,0 +1,60 @@
+<div>
+	<!-- 单选按钮 -->
+	<div ng-if="type == 'single-option'">
+		<div class="options-box">
+			<span ng-repeat="option in question.options track by $index">
+				<label>
+					<input type="radio" name="{{name}}" value="{{option}}"/> {{option}}
+				</label>
+			</span>
+		</div>
+	</div>
+
+
+	<!-- 多选按钮 -->
+	<div ng-if="type == 'mutiple-option'">
+		<div class="options-box">
+			<p ng-repeat="option in question.options">
+				<label>
+					<input type="checkbox" name="{{name}}" value="{{option}}"/> {{option}}
+				</label>
+			</p>
+		</div>
+	</div>
+	
+
+	<!-- 下拉列表框 -->
+	<div ng-if="type == 'select-option'">
+		<div class="options-box">
+			<select name="{{name}}" ng-model="temp" ng-options="value for value in question.options" class="form-control" style="width:300px;"></select>
+		</div>
+	</div>
+
+	<!-- 单行文本框 -->
+	<div ng-if="type == 'text'">
+		<div class="options-box">
+			<input type="text" name="{{name}}" class="form-control" style="width:300px;"/>
+		</div>
+	</div>
+
+	<!-- 单行文本框 -->
+	<div ng-if="type == 'textarea'">
+		<div class="options-box">
+			<textarea name="{{name}}" class="form-control" style="width:300px;"></textarea>
+		</div>
+	</div>
+
+	<!-- 日期框 -->
+	<div ng-if="type == 'date'">
+		<div class="options-box">
+			<canlendar name="{{name}}" min="{{question.mindate}}" max="{{question.maxdate}}"></canlendar>
+		</div>
+	</div>
+
+	<!-- range条 -->
+	<div ng-if="type == 'range'">
+		<div class="options-box">
+			<input type="range" name="{{name}}" min="{{question.min}}" max="{{question.max}}" step="{{question.step}}" style="width:300px;" ng-model="temp"/> {{temp}}
+		</div>
+	</div>
+</div>

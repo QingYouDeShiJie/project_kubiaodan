@@ -1,0 +1,39 @@
+<div class="canlendar-box">
+	<canlendar-nav 
+		y	  = "y" 
+		m	  = "m" 
+		type  = "type"
+		ystart= "ystart"
+		min = "{{min}}"
+		max = "{{max}}"
+	></canlendar-nav>
+	
+	
+	<canlendar-table-m 
+		ng-show="type=='m'" 
+		y="y" 
+		m="m" 
+		d="d"
+		changeshowbox = "changeshowbox()"
+		min = "{{min}}"
+		max = "{{max}}"
+	></canlendar-table-m>
+
+	<canlendar-table-y 
+		ng-show="type=='y'"
+		type  = "type"
+		m     = "m"
+		y	  = "{{y}}"
+		min = "{{min}}"
+		max = "{{max}}"
+	></canlendar-table-y>
+
+	<canlendar-table-ys 
+		ng-show="type=='ys'" 
+		y="y" 
+		ystart= "ystart"
+		type  = "type"
+		min = "{{min}}"
+		max = "{{max}}"
+	></canlendar-table-ys>
+</div>

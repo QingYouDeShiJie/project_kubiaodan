@@ -1,0 +1,10 @@
+安装依赖
+npm install
+
+
+开数据库
+mongod --dbpath c:\shujuku
+
+
+运行
+node app.js

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title><%= formdata.title %></title>
+	<style type="text/css">
+		body{
+			background-color: #ccc;
+		}
+		.wrap{
+			margin: 50px auto;
+			width: 1000px;
+			border:1px solid #bdbdbd;
+			background: white;
+			padding: 10px;
+		}
+		.question{
+			margin-bottom: 20px;
+			position: relative;
+			padding: 10px;
+			border-radius: 6px;
+		}
+ 
+	</style>
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/components/canlendar/canlendar.css">
+</head>
+<body>
+	<div class="wrap" ng-controller="MainCtrl as mainctrl">
+		<h1><%= formdata.title %></h1>
+		<hr>
+		<form name="myform">
+			<div class="question" ng-repeat="question in mainctrl.formdata.questions track by $index">
+				<h4>
+					<span style="color:red;" ng-show="question.required">*</span>
+					{{$index + 1}}. {{question.title}}
+				</h4>
+
+				<form-component 
+					type="{{question.type}}" 
+					question="question" 
+					name="{{'no' + ($index + 1)}}"
+				></form-component>
+			</div>
+		</form>
+
+		<button id="btn" class="btn-success">提交</button>
+	</div>
+	
+	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/angular.min.js"></script>
+	<script type="text/javascript" src="/components/canlendar/canlendar.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("app" , ["kaola_canlendar"]);
+
+		// 注入数据
+		app.controller("MainCtrl",[function(){
+			this.formdata = <%- JSON.stringify(formdata) %>;
+		}]);
+
+		//注册一个E级别指令
+		app.directive("formComponent",[function(){
+			return {
+				restrict : "E",
+				templateUrl : "/produce/form-component.html",
+				scope : {
+					"type" : "@type",
+					"question" : "=question",
+					"name" : "@name"
+				},
+				link : function(scope,elements){
+					 
+				}
+			}
+		}]);
+
+		$("#btn").click(function(){
+			
+			var daan = $("form[name=myform]").serialize();
+			 
+			$.post("/tijiao?id=<%=id%>",{daan : daan},function(){
+				alert("提交成功");
+				window.location = "/";
+			});
+		});
+	</script>
+</body>
+</html>

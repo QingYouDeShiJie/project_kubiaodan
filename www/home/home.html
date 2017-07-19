@@ -1,0 +1,35 @@
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="row">
+					<div class="col-lg-6">
+						<h1>我的表单清单</h1>
+					</div>
+				</div>
+				<hr>
+				<table class="table">
+					<tr  ng-repeat="item in homectrl.getAllFormData() track by $index">
+						<td>
+							{{item.formdata.title}}
+						</td>
+						
+						<td>
+							<a href="{{'/form/' + item._id}}" target="_blank">让他人做题</a>
+ 						</td>
+						<td>
+							<a href="" ng-click="homectrl.goproduce(item._id)">编辑</a>
+ 						</td>
+						<td>
+ 							<a href="" ng-click=" ">删除</a>
+						</td>
+						<td>
+							<a href="" ng-click="homectrl.gobaobiao(item._id)">查看报表</a>
+						</td>
+					</tr>
+				</table>
+				 
+			</div>
+		</div>
+	</div>
+</div>

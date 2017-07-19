@@ -1,0 +1,86 @@
+<div class="attrbox" ng-show="getOnEdit() != -1">
+	<!-- {{getFormdata()}} -->
+	<h4>题目问题：</h4>
+	<input type="text" ng-model="theq().title" class="form-control" />
+
+	<h4>是否必须</h4>
+	<label><input type="checkbox" ng-model="theq().required" /> 必须</label>
+ 	
+ 	<h4>题目类型：</h4>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="single-option">单选题</label>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="mutiple-option">多选题</label>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="text">单行文本</label>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="textarea">多行文本</label>
+	
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="select-option">下拉选择</label>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="date">日期</label>
+	<label class="label_l"><input type="radio" ng-model="theq().type" value="range">范围条</label>
+ 	 
+	<div class="cl"></div>
+	<div ng-show="theq().type == 'single-option' || theq().type == 'mutiple-option' || theq().type == 'select-option'">
+	 	<h4>选项（拖拽可以排序）</h4>
+	 	<div class="optionsbox">
+			<div ng-repeat="item in theq().options track by $index" >
+				<div class="row">
+					<div class="col-lg-8">
+						<input type="text" ng-model="theq().options[$index]" class="form-control" ng-blur="checkOption($event,$index)"/> 
+					</div>
+					<div class="col-lg-4 btns">
+						<span class="glyphicon glyphicon-remove" ng-click="removeo($index)"></span>
+						<span class="glyphicon glyphicon-align-justify handle"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8">
+				<input type="text" class="form-control" ng-blur="addOption($event)" >
+			</div>
+			<div class="col-lg-4 btns">
+			 
+			</div>
+		</div>
+	</div>
+	
+	<div ng-show="theq().type == 'range' ">
+		<h4>值的范围</h4>
+		<div class="row">
+			<div class="col-lg-8">
+				min：<input type="text" class="form-control" ng-model="theq().min">
+				max：<input type="text" class="form-control" ng-model="theq().max">
+				step : <input type="text" class="form-control" ng-model="theq().step">
+			</div>
+			 
+		</div>
+	</div>
+
+	<div ng-show="theq().type == 'text' ">
+		<h4>校验规则</h4>
+		<div class="row">
+			<div class="col-lg-8">
+				正则式（不要加定界斜杠，请直接写正则式，比如：^[\d]{6}$）
+				<input type="text" class="form-control" ng-model="theq().regexp">
+				正确提示：
+				<input type="text" class="form-control" ng-model="theq().ctip">
+				错误提示: 
+				<input type="text" class="form-control" ng-model="theq().wtip">
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-show="theq().type == 'date' ">
+		<h4>日期范围</h4>
+		<div class="row">
+			<div class="col-lg-8">
+				最早日期（格式类似1900-1-1，如果使用今天请用today标记）
+				<input type="text" class="form-control" ng-model="theq().mindate">
+				最晚日期（格式类似1900-1-1，如果使用今天请用today标记）
+				<input type="text" class="form-control" ng-model="theq().maxdate">
+			</div>
+		</div>
+	</div>
+	
+	<br>
+	<button class="btn btn-large btn-success" ng-click="finish()">结束编辑</button>
+</div>

@@ -1,0 +1,13 @@
+<div class="canlendar-table-ys">
+	<div class="row">
+		<div class="col-xs-4" ng-repeat="niandai in getArr(ystart)">
+			<a 
+				ng-repeat="year in niandai" 
+				ng-click="changey(year)" 
+				ng-class="getClass(year)"
+			>
+				{{year}}年
+			</a>
+		</div>
+	</div>
+</div>

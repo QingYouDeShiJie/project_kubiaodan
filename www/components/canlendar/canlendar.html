@@ -1,0 +1,16 @@
+<div class="canlendar">
+	{{y}}-{{m}}-{{d}}
+ 	<button class="glyphicon glyphicon-calendar canlendar-btn" ng-click="changeshowbox()"></button>
+	
+	<canlendar-box
+		ng-show="isShowbox"
+		y = "y"
+		m = "m"
+		d = "d"
+		type = "type"
+		ystart = "ystart"
+		changeshowbox = "changeshowbox()"
+		min = "min"
+		max = "max"
+	></canlendar-box>
+</div>

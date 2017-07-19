@@ -1,0 +1,30 @@
+<div class="form-shower">
+	<h3 ng-show="!edittitle">
+		{{getFormdata().title}} 
+	</h3>
+	<span class="editbtn glyphicon glyphicon-pencil" ng-click="edittitle = !edittitle"></span>
+
+	<input ng-if="edittitle" type="text" ng-model = "getFormdata().title" class="form-control" style="font-size:24px; height:30px;" autofocus>
+
+	<hr>
+	<div class="questions_big_box   sortablebox">
+		<div ng-repeat="question in getFormdata().questions track by $index" ng-class="{'question' : true , 'onedit' : $index == onEdit()}">
+			<h4>
+				<span style="color:red;" ng-show="question.required">*</span>
+				{{$index + 1}}. {{question.title}}
+			</h4>
+
+			<span class="removebtn glyphicon glyphicon-remove" ng-click="removeq($index)"></span>
+			<span class="editbtn glyphicon glyphicon-pencil" ng-click="edit($index)"></span>
+			<span class="justifybtn glyphicon glyphicon-align-justify"></span>
+
+			<form-component 
+				type="{{question.type}}" 
+				question="question" 
+				name="{{'no' + ($index + 1)}}"
+			></form-component>
+		</div>
+	</div>
+
+	<div class="mask"></div>
+</div>
